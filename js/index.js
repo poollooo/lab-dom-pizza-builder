@@ -133,32 +133,11 @@ function renderPrice() {
   price.innerHTML = `<h2>Your pizza's price</h2>`;
   price.innerHTML += `<b>$${basePrice} cheese pizza</b>`;
 
-  document.querySelectorAll('.btn.btn-pepperoni').forEach((e) => {
-    if (state.pepperoni) {
-      price.innerHTML += `<li>${ingredients.pepperoni.price} ${ingredients.pepperoni.name}</li>`;
+  for (let i in state) {
+    if (state[i]) {
+      price.innerHTML += `<li>${ingredients[i].price} ${ingredients[i].name}</li>`;
     }
-  })
-  document.querySelectorAll('.btn.btn-mushrooms').forEach((e) => {
-    if (state.mushrooms) {
-      price.innerHTML += `<li>${ingredients.mushrooms.price} ${ingredients.mushrooms.name}</li>`;
-    }
-  })
-  document.querySelectorAll('.btn.btn-green-peppers').forEach((e) => {
-    if (state.greenPeppers) {
-      price.innerHTML += `<li>${ingredients.greenPeppers.price} ${ingredients.greenPeppers.name}</li>`;
-    }
-  })
-  document.querySelectorAll('.btn.btn-sauce').forEach((e) => {
-    if (state.whiteSauce) {
-      price.innerHTML += `<li>${ingredients.whiteSauce.price} ${ingredients.whiteSauce.name}</li>`;
-    }
-  })
-  document.querySelectorAll('.btn.btn-crust').forEach((e) => {
-    if (state.glutenFreeCrust) {
-      price.innerHTML += `<li>${ingredients.glutenFreeCrust.price} ${ingredients.glutenFreeCrust.name}</li>`;
-    }
-  })
-
+  }
   price.innerHTML += `<strong>$${basePrice + ingredients.pepperoni.price * state.pepperoni + ingredients.mushrooms.price * state.mushrooms + ingredients.greenPeppers.price * state.greenPeppers + ingredients.whiteSauce.price * state.whiteSauce + ingredients.glutenFreeCrust.price * state.glutenFreeCrust} </strong>`;
 }
 
